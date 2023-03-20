@@ -1,6 +1,6 @@
 #include "Message.h"
 
-MessageException::MessageException(string error) : error_(error) {};
+MessageException::MessageException(const string& error) : error_(error) {};
 
 const char* MessageException::what() const
 {

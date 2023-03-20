@@ -4,7 +4,6 @@
 #include "Message.h"
 #include <vector>
 #include <memory>
-#include <algorithm>
 using namespace std;
 
 class Chat

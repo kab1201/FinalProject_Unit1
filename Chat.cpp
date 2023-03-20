@@ -15,10 +15,11 @@ size_t concolColor = colorWhite;
 
 Chat::Chat()
 {
+	isWork_ = true;
 	users_.push_back(make_shared<User>(User{ static_cast<string>("all"), static_cast<string>("allPswd") }));
+	// Add two users for easy testing
 	users_.push_back(make_shared<User>(User{ static_cast<string>("test1"), static_cast<string>("t1Pswd"), static_cast<string>("TEST1") }));
 	users_.push_back(make_shared<User>(User{ static_cast<string>("test2"), static_cast<string>("t2Pswd"), static_cast<string>("TEST2") }));
-	isWork_ = true;
 }
 
 bool Chat::getIsWork() const { return isWork_; }
@@ -144,8 +145,6 @@ void Chat::signIn()
 		}
 	} while (ptr_currentUser_ == nullptr && (cntAttemptsLogin < cntAttempts));
 
-	cntAttemptsLogin = 0;
-
 	if (ptr_currentUser_ == nullptr)
 		cout << "You have made " << cntAttempts << " attempts! Sign Up, please.\n";
 }
@@ -159,12 +158,12 @@ void Chat::Exit()
 
 void Chat::showAllUsers()
 {
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorDarkBlue;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
 	cout << "*****   USERS   *****" << endl;
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorWhite;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
@@ -176,12 +175,12 @@ void Chat::showAllUsers()
 
 void Chat::showAllMessages()
 {
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorDarkBlue;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
 	cout << "*****   MESSAGES   *****" << endl;
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorWhite;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
@@ -256,18 +255,14 @@ void Chat::chatMenu()
 {
 	int choiceSign = 1;
 
-	string userLogin;
-	string userPassword;
-	string userName;
-
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorYellow;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
 	cout << string(47, '-') << endl;
 	cout << "| Sign In (1) || Sign Up (2) || Stop chat (0) |" << endl;
 	cout << string(47, '-') << endl;
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorWhite;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
@@ -294,14 +289,14 @@ void Chat::userMenu()
 {
 	int choice = 1;
 
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorLightBlue;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
 	cout << string(74, '-') << endl;
 	cout << "| Send Message (1) || Messages (2) || Users (3) || Tools (4) || Exit (0) |" << endl;
 	cout << string(74, '-') << endl;
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorWhite;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
@@ -334,14 +329,14 @@ void Chat::toolsMenu()
 {
 	int choice = 1;
 
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorLightGreen;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------
 	cout << string(56, '-') << endl;
 	cout << "| Change Name (1) || Change password (2) || Return (0) |" << endl;
 	cout << string(56, '-') << endl;
-	// меняем цвет текста
+	// change the color of the text
 	concolColor = colorWhite;
 	SetConsoleTextAttribute(hConsole, concolColor);
 	// ----------

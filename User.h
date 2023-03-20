@@ -11,7 +11,7 @@ private:
 	string error_;
 
 public:
-	UserException(string error);
+	explicit UserException(const string& error);
 
 	virtual const char* what() const override;
 };

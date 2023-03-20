@@ -10,7 +10,7 @@ private:
 	string error_;
 
 public:
-	MessageException(string error);
+	explicit MessageException(const string& error);
 
 	virtual const char* what() const override;
 };

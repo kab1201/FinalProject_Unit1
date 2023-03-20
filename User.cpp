@@ -1,6 +1,6 @@
 #include "User.h"
 
-UserException::UserException(string error) : error_(error) {};
+UserException::UserException(const string& error) : error_(error) {};
 
 const char* UserException::what() const
 {
